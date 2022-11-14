@@ -30,10 +30,13 @@ let airlines = [
     {
         id: 4,
         name: "CAL Cargo",
-        country: "israel",
+        country: "usa",
         numberOfPlanes: 100,
         numberOfFlightsAvailable: 23
     },
 
 
 ]
+
+
+module.exports = airlines;

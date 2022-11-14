@@ -22,7 +22,7 @@ const updateCountry = (req, res) => {
         countries[countryIndex] = req.body.data;
         return res.send('success update country')
     }
-    return res.send(`can't update country`)
+    return res.send(`cannot update country`)
 }
 const deleteCountry = (req, res) => {
     const startIndex = getIndex(req);
