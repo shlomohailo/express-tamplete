@@ -1,4 +1,5 @@
 const airlines = require('../models/model-airlines');
+
 const getIndexAirlines = (req) => {
     const airlinesId = airlines.find(item => item.id == req.params.id);
     const airlinesIndex = airlines.indexOf(airlinesId);
