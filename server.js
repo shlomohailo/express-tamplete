@@ -1,11 +1,13 @@
 
-const dotenv =require('dotenv');
+const dotenv = require('dotenv');
 dotenv.config();
+const DB = require('./DB/db')
 const express = require('express');
 const cors = require('cors');
 const countriesRouter = require('./routes/travel-router');
 const airlinesRouter = require('./routes/airlines-router');
 const flightsRouter = require('./routes/flights-router');
+const booksRouter = require('./routes/books-router')
 const users = require('./models/model-users');
 
 const app = express();
@@ -67,10 +69,11 @@ app.use(cors());
 //     res.send("password not match")
 // }
 
-
+app.use('/books', booksRouter)
 app.use('/countries', countriesRouter);
 app.use('/airlines', airlinesRouter);
 app.use('/flights', flightsRouter);
+
 
 
 

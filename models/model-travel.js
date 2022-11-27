@@ -21,7 +21,7 @@ const Schema = mongoose.Schema;
 const Countries = new Schema({
     idCountries: Number,
     nameCountries: String,
-    cities: Array[String],
+    cities: Array,
     obj: Object,
 
 })

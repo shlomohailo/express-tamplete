@@ -7,13 +7,17 @@ const {
 
 const createNewUser = (req, res) => {
   if (
-    validEmail(req.body.user.email) == true &&
-    passwordValid(req.body.user.password, req.body.user.currentPassword) ==
-      true &&
-    checkAgeOver(req.body.user.age) == true
+    validEmail(req.body.user.email) &&
+    passwordValid(req.body.user.password, req.body.user.currentPassword)
+    &&
+    checkAgeOver(req.body.user.userDate)
   ) {
-    users.push(req.body.user);
-    res.send("success");
+    users.push({
+      ...req.body.user,
+      id: users.length + 1,
+      token: Math.floor(Math.random() * 10000),
+    });
+    res.send({ message: "success", email: users[users.length - 1].email, token: users[users.length - 1].token });
   }
   res.send("not create");
 };

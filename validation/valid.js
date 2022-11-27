@@ -14,11 +14,16 @@ const passwordValid = (password, currentPassword) => {
     return false
 }
 
-const checkAgeOver = (age) => {
-    if (age > 18) {
-        return true;
+const checkAgeOver = (userDate) => {
+    let today = new Date();
+    let userBDate = new Date(userDate)
+    let age = today.getFullYear() - userBDate.getFullYear();
+    let month = today.getMonth() - userBDate.getMonth();
+    if (month < 0 || (month === 0 && today.getDate() < userBDate.getDate())) {
+        age--;
     }
-    return false;
+    return age > 18 ? true : false;
 }
 
-module.exports = { validEmail, passwordValid,checkAgeOver }
+
+module.exports = { validEmail, passwordValid, checkAgeOver }
